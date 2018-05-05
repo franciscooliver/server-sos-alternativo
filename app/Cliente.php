@@ -6,15 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-<<<<<<< HEAD
     protected $fillable = [
+      'id',
       'nome',
       'email',
       'telefone',
       'cpf',
       'senha'
     ];
-=======
-    //
->>>>>>> upstream/master
 }

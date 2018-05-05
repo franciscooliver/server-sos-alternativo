@@ -21,7 +21,7 @@ class OficinaController extends Controller
         //
         //recuperando arquivo do banco
         $oficinas = Oficina::all();
-        return response()->json(['data'=>$oficinas,'status'=>true]);
+        return response()->json($oficinas);
     }
 
     /**
@@ -47,7 +47,7 @@ class OficinaController extends Controller
         $oficina = Oficina::create($dados);
 
         if($oficina){
-            return response()->json(['data'=>$oficina,'status'=>true]);
+            return response()->json($oficina);
         }else{
             return response()->json(['data'=>"Erro ao salvar produto",'status'=>false]);
         }
