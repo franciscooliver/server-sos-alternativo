@@ -58,9 +58,11 @@ class RegistroController extends Controller
         //
         $oficinaRegistro = DB::table('registros')
                 ->join('oficinas', 'oficinas.id', '=','registros.fk_id_oficina')
-                ->select('registros.*')
+                ->join('clientes', 'clientes.id', '=','registros.fk_id_cliente')
+                ->select('registros.*','clientes.nome')
                 ->where([
-                    'registros.fk_id_oficina'=>$id
+                    'registros.fk_id_oficina'=>$id,
+
                 ])
                 ->orderBy('id','desc')
                 ->take(8)
