@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 Route::resource('oficinas','OficinaController');
 //retorna
 Route::resource('oficina','OficinaController');
+//retorna o id por nome
+Route::resource('oficinaid','OficinaController@getIdOficina');
 //insere
 Route::resource('clientes','ClienteController');
 //retorna

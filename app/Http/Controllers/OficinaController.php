@@ -92,6 +92,36 @@ class OficinaController extends Controller
 
         
     }
+    public function getIdOficina($nome)
+    {
+        //
+        //retorna um cliente de acordo com o id passado
+        $oficina = Oficina::where([
+            'nome'=>$nome
+       ])->get();
+
+
+       $msgError = array(
+           'msg'=>"false"
+       );
+
+       if(count($oficina) > 0){
+           $id = $oficina[0]["id"];
+        
+   
+           $msgSuccess = array(
+           'msg'=>"true",
+           'id'=>$id,
+           );
+           return response()->json($msgSuccess);
+       }else{
+           return response()->json($msgError);
+       }
+       
+
+        
+    }
+
 
     /**
      * Show the form for editing the specified resource.
