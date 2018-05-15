@@ -67,7 +67,7 @@ class ClienteController extends Controller
     {
         //retorna um cliente de acordo com o id passado
         $cliente = Cliente::where([
-             'email'=>$email 
+             'email'=>$email
         ])->get();
 
 
@@ -76,12 +76,14 @@ class ClienteController extends Controller
         );
 
         if(count($cliente) > 0){
+            $id = $cliente[0]["id"];
             $email2 = $cliente[0]["email"];
             $senha = $cliente[0]["senha"];
 
     
             $msgSuccess = array(
             'msg'=>"true",
+            'id'=>$id,
             'email'=>$email2,
             'senha'=>$senha
             );
